@@ -16,12 +16,14 @@ if(isset($_GET["page"])){
             if(isset($_GET["action"])){
                 switch($_GET["action"]){
                     case "detail":
+                        $details = $tour->getChiTiet();
                         require_once __DIR__ . "/views/tour/detailsTour.php";
                         break;
                     case "list":
                         require_once __DIR__ . "/views/tour/listTour.php";
                         break;
                     case "search":
+                        $search = $tour->getTimKiem();
                         require_once __DIR__ . "/views/tour/searchTour.php";
                         break;
                     case "theloai":
@@ -39,6 +41,13 @@ if(isset($_GET["page"])){
             
             echo '</div></section>';
             break;
+
+        case "register":
+            require_once __DIR__ . "/views/register.php";
+            
+
+
+
     }
 }
 require_once __DIR__ . "/include/footer.php";
