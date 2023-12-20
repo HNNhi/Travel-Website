@@ -1,11 +1,11 @@
 <div class="register-content-items">
  <div class="register">
-  <form action='register.php' method="post">
+  <form action='' method="post">
     <div class="form">
          <h1>Đăng kí tài khoản</h1>
         <div class="input">
-          <label for="tenKhacHhang">Tên khách hàng</label>
-          <input type="text" name="tenKhacHhang" id="tenKhacHhang">
+          <label>Tên khách hàng</label>
+          <input type="text" name="tenkhachhang"/>
         </div>
         <div class="input">
           <label>Giới tính</label>
@@ -29,7 +29,7 @@
         </div>
         <div class="input">
           <label>Password</label>
-          <input type="passwork" name="password"/>
+          <input type="password" name="password"/>
         </div>
         
         <div>
@@ -40,20 +40,29 @@
   </form>
   <?php
   if(isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"]=="POST"){
-    $Tenkhachhang = htmlspecialchars($_POST["tenKhacHhang"]);
-    $Gioitinh = htmlspecialchars($_POST["gioiTinh"]);
-    $Namsinh = htmlspecialchars($_POST["namSinh"]);
+    $Tenkhachhang = htmlspecialchars($_POST["tenkhachhang"]);
+    $Gioitinh = htmlspecialchars($_POST["gioitinh"]);
+    $Namsinh = htmlspecialchars($_POST["namsinh"]);
     $Sdt = htmlspecialchars($_POST["sdt"]);
     $Email = htmlspecialchars($_POST["email"]);
-    $Tendangnhap = htmlspecialchars($_POST["tenDangNhap"]);
-    $Password = htmlspecialchars($_POST["passWord"]);
-    $sql="INSERT INTO `khachhang`(`id`, `tenKhacHhang`,`gioiTinh`, `namSinh`, `sdt`,`cccd/cmnd`,`email`,`tenDangNhap`,`passWord`)";
+    $Tendangnhap = htmlspecialchars($_POST["tendangnhap"]);
+    $Password = htmlspecialchars($_POST["password"]);
+    $sql="INSERT INTO `khachhang`(`id`, `tenKhacHhang`, `gioiTinh`, `namSinh`, `sdt`, `cccd/cmnd`, `email`, `tenDangNhap`, `passWord`) VALUES 
+     (NULL, '$Tenkhachhang', '$Gioitinh', '$Namsinh', $Sdt, 0, '$Email', '$Tendangnhap', '$Password')";
     $connect = new connectDB();
     $connect = $connect->connect();
     $result = $connect->query($sql);
   
     if($result){
-      echo '<script>alert("Đăng kí thành công");</script>';
+      $_SESSION["user"] = [];
+      $_SESSION["user"]["tenkhachhang"] = $Tenkhachhang;
+      $_SESSION["user"]["sdt"] = $Sdt;
+      $_SESSION["user"]["id"] = $connect->insert_id;
+      $_SESSION["user"]["gioiTinh"] = $Gioitinh;
+      $_SESSION["dattour"] = [];
+      echo '<script>alert("Đăng kí thành công"); location.href="?page=trangchu"</script>';
+
+      
     }
     else{
       echo '<script>alert("Đăng kí thất bại");</script>';

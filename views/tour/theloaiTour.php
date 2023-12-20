@@ -1,19 +1,19 @@
 <div class="container-listTour">
     <div class="list-tour">
         <?php while ($row = $theloai->fetch_assoc()){ ?>
-        <div class="item">
+         <div class="item">
             <div class="inner-item">
                 <div class="img-tour">
-                <a href="?page=tour&action=detail&id=<?php echo $row["id"] ?>"> <img src="/images/hinhanh_tour/<?php echo $row["hinhAnh"] ?>" alt="hình ảnh tour"></a>
+                    <a href="?page=tour&action=detail&id=<?php echo $row["id_tour"] ?>"> <img src="/images/hinhanh_tour/<?php echo $row["hinhAnh"] ?>" alt="hình ảnh tour"></a>
                 </div>
                 <div class="name-tour">
                     <h3>
-                        <a href="?page=tour&action=detail&id=<?php echo $row["id"] ?>"><?php echo $name = "Tour " . $row["tenDiaDiem"] . " - " . $row["tenDiaDanh"]  ." ". $row["thoiHan"]; ?></a>
-                    </h3>
+                        <a href="?page=tour&action=detail&id=<?php echo $row["id_tour"] ?>"><?php echo $name = "Tour " . $row["tenDiaDiem"] . " _ " . $row["tenDiaDanh"]." _ ". $row["thoiHan"]; ?></a>
+                    </h3> 
                 </div>
-                <div class="price-tour" <?php if((int)$row["giamGia"] > 0) echo 'style="text-decoration: line-through; color:black;"'; ?>>
+                <div class="price-tour" <?php if((int)$row["giamGia"] > 0) echo 'style="text-decoration: line-through; color:black; font-size:25px;"'; ?>>
                     <?php $price = (int)$row["donGia"];?>
-                    <span>Giá: <?php echo number_format((int)$row["donGia"]) ?>đ</span>
+                    <span style="font-size:25px;">Giá: <?php echo number_format((int)$row["donGia"]) ?>đ</span>
                 </div>
             
                 <div class="giamgia">
@@ -35,10 +35,13 @@
                 </div>
 
                 <div class="order-tour">
-                    <button>Đặt tour ngay</button>
+                   <button onclick="location.href='?page=tour&action=detail&id=<?php echo $row['id_tour'] ?>'">Xem chi tiết</button>
+                    
+                    
                 </div>
             </div>
         </div>
         <?php } ?>
     </div>
+
 </div>

@@ -4,16 +4,16 @@
         <div class="item">
             <div class="inner-item">
                 <div class="img-tour">
-                    <a href="?page=tour&action=detail&id=<?php echo $row["id"] ?>"> <img src="/images/hinhanh_tour/<?php echo $row["hinhAnh"] ?>" alt="hình ảnh tour"></a>
+                     <img src="/images/hinhanh_tour/<?php echo $row["hinhAnh"] ?>" alt="hình ảnh tour"></a>
                 </div>
                 <div class="name-tour">
                     <h3>
-                        <a href="?page=tour&action=detail&id=<?php echo $row["id"] ?>"><?php echo $name = "Tour " . $row["tenDiaDiem"] . " - " . $row["tenDiaDanh"]  ." ". $row["thoiHan"]; ?></a>
+                        <?php echo $name = "Tour " . $row["tenDiaDiem"] . " _ " . $row["tenDiaDanh"]." _ ". $row["thoiHan"]; ?></a>
                     </h3> 
                 </div>
                 <div class="price-tour" <?php if((int)$row["giamGia"] > 0) echo 'style="text-decoration: line-through; color:black; font-size:25px;"'; ?>>
                     <?php $price = (int)$row["donGia"];?>
-                    <span>Giá: <?php echo number_format((int)$row["donGia"]) ?>đ</span>
+                    <span style="font-size:25px;">Giá: <?php echo number_format((int)$row["donGia"]) ?>đ</span>
                 </div>
             
                 <div class="giamgia">
@@ -35,10 +35,31 @@
                 </div>
 
                 <div class="order-tour">
-                    <button>Đặt tour ngay</button>
+                   <button onclick="location.href='?page=tour&action=detail&id=<?php echo $row['id_tour'] ?>'">Xem chi tiết</button>
+                    
+                    
                 </div>
             </div>
         </div>
         <?php } ?>
     </div>
+    <div class="so-trang">
+    <div class="st">
+        <div style="clear:both;"></div>
+
+         <?php 
+        
+        for($i=1; $i<= $tongtrang;$i++){
+            echo '<a href ="?page=tour&trangso='.$i.'"style="padding: 10px;font-size: 20px;background-color: #f9dfff;margin-right: 5px;text-decoration: none;">'.$i.'</a>';
+        }
+         ?> 
+
+        </div>
+
+        <!-- <a href="page=tour&p=1?page=tour&p=1"style=" padding: 10px;font-size: 20px;background-color: #f9dfff;margin-right: 5px;">1</a>
+        <a href="page=tour&p=1?page=tour&p=2"style="padding: 10px;font-size: 20px;background-color: #f9dfff;margin-right: 5px;">2</a>
+        <a href="page=tour&p=1?page=tour&p=3"style="padding: 10px;font-size: 20px;background-color: #f9dfff;margin-right: 5px;">3</a>
+        <a href="page=tour&p=1?page=tour&p=4"style="padding: 10px;font-size: 20px;background-color: #f9dfff;margin-right: 5px;">4</a> -->
+    </div> 
+   
 </div>

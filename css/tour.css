@@ -1,12 +1,14 @@
 .container-tour{
     display: flex;
+    padding-top: 30px;
     padding-right: 30px;
     padding-left: 30px;
     width: 100%;
     background-color: rgb(255, 250, 254);
 }
 .container-danhmuc{
-    width: 10%;
+    width: 12%;
+    font-size: 30px;
 }
 .container-danhmuc li{
     list-style: none;
@@ -16,7 +18,7 @@
 .container-danhmuc a{
     text-decoration: none;
     color: black;
-    font-size: 18px;
+    font-size: 25px;
     transition: all ease .4s;
 }
 .container-danhmuc a:hover{
@@ -38,7 +40,7 @@
    
 }
 .list-tour .inner-item{
-    padding: 20px;
+    padding: 5px;
     background-color: white;
     border-radius: 7px;
     box-shadow: 0px 0px 10px rgba(0,0,0,.2);
@@ -53,18 +55,20 @@
 .list-tour .name-tour{
     margin-top: 10px;
     color: black;
-    text-align: center;
-    font-size: 25px;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
 }
 .list-tour .name-tour a{
     color: black;
     text-decoration: none;
 }
-.price-tour, .giamgia{
-    padding-left: 10px;
+.name-tour{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .price-tour {
-    
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 20px;
@@ -79,19 +83,20 @@
     padding-top: 70px;
     
 }
-
 .order-tour button{
     position: absolute;
-    bottom: 20px;
+    bottom: 15px;
+    
+}
+.order-tour button{
     width: 80%;
     height: 40px;
     border: none;
     border-radius: 5px;
     background-color: rgb(249, 128, 188);
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     transition: all ease .4s;
-    padding-bottom: 10px;
 }
 .order-tour button:hover{
     background-color: rgb(249, 88, 168);
@@ -107,60 +112,10 @@
     height: 100%;
     object-fit: cover;
 }
-
-
-.details-Tour{
-    width: 90%;
+.st{
     display: flex;
+    align-items: center;
     justify-content: center;
-}
-.details-item{
-    width: 80%;
-    border: 5px solid rgb(255, 180, 193);
-   padding-left: 20px ;
-   box-shadow: 0px 0px 10px 0px rgba(0,0,0,.5);
-   border-radius: 10px;
-}
-.details-item h2{
-   margin-bottom: 30px;
-}
-.img-details-Tour{
-        
-    display: flex;
-}
-.img-details-Tour img{
-    width: 50%;
- }
-.img-details-Tour .content-details-Tour{
-    line-height: 1.6;
-    margin-left: 30px;
-}
-.content-details-Tour .name-details-tour{
-    margin-bottom: 20px;
-}
-.content-details-Tour .price-details-tour{
-    margin-bottom: 20px;
-}
-.content-details-Tour img{
-    width: 100px;
-    margin-top: 20px;
-}
-.price-details-tour span{
-    font-size: 24px;
-}
-.order-details-tour button{
-    background-color: pink;
-    padding: 10px;
-}
-.order-details-tour button:hover{
-    cursor: pointer;
-    opacity: 0.6;
-}
-.share-details-Tour{
-    width: 587px;
-    margin-top: 20px;
-}
-.share-details-Tour div{
-    list-style-type:armenian ;
+    padding: 15px;
 }
 
